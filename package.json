@@ -1,0 +1,30 @@
+{
+  "name": "toolkit_os",
+  "version": "1.0.0",
+  "description": "made to facilitate the installations in the new OS",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "start-dev": "NODE_ENV=development electron .",
+    "start-nodemon": "nodemon --watch main.js --exec npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamspooks/Toolkit_OS.git"
+  },
+  "author": "JGDev & Kally",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamspooks/Toolkit_OS/issues"
+  },
+  "homepage": "https://github.com/iamspooks/Toolkit_OS#readme",
+  "devDependencies": {
+    "electron": "^23.2.0",
+    "electron-packager": "^17.1.1",
+    "electron-builder": "^24.6.3",
+    "nodemon": "^2.0.22"
+  },
+  "build":{
+    "appId": "Toolkit_OS"
+  }
+}
