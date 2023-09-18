@@ -6,7 +6,9 @@
   "scripts": {
     "start": "electron .",
     "start-dev": "NODE_ENV=development electron .",
-    "start-nodemon": "nodemon --watch main.js --exec npm start"
+    "start-nodemon": "nodemon --watch main.js --exec npm start",
+    "pack": "electron-build --dir",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
