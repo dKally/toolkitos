@@ -224,5 +224,5 @@ openDownloadsBtn.addEventListener('click', ()=>{openDownloads()})
 
 function openDownloads(){
 
-shell.openPath(os.homedir() + '/Downloads')
+shell.openPath(os.homedir() + '\\Downloads')
 }

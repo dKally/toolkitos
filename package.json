@@ -2,7 +2,7 @@
   "name": "toolkit_os",
   "version": "1.0.0",
   "description": "made to facilitate the installations in the new OS",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "electron .",
     "start-dev": "NODE_ENV=development electron .",
