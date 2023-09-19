@@ -1,12 +1,12 @@
-const electron = require('electron');
-const { dialog } = require('electron')
-const url = require('url');
-const path = require('path');
-const {Menu} = require('electron');
+// const electron = require('electron')
+// const { dialog } = require('electron')
+const url = require('url')
+const path = require('path')
+const {app, BrowserWindow, ipcMain, Menu, globalShortcut} = require('electron')
 
-const{
-    app, BrowserWindow
-} = electron;
+// const{
+//     app, BrowserWindow
+// } = electron;
 
 app.setName("ToolkitOS")
 
@@ -28,8 +28,6 @@ app.on('ready', function(){
                 contextIsolation: false,
             },
         });
-
-        mainWindow.webContents.openDevTools()
 
     }else{
 
@@ -54,6 +52,10 @@ app.on('ready', function(){
         },
     ));
     
+    globalShortcut.register('Shift+I', () => {
+        mainWindow.webContents.openDevTools()
+      });
+    mainWindow.webContents.openDevTools()
 
 
     mainWindow.setTitle('Teste Toolkit OS');
@@ -61,6 +63,26 @@ app.on('ready', function(){
     const mainMenu = Menu.buildFromTemplate(menuTemplate);
     Menu.setApplicationMenu(mainMenu);
 });
+
+app.on('window-all-closed', ()=>{
+    console.log("Todas as janelas foram fechadas!")
+    app.quit()
+})
+
+app.on('activate', ()=>{
+    if(BrowserWindow.getAllWindows().length === 0){
+        createWindow()
+    }
+})
+
+
+app.on('window-all-closed', function () {
+    if (process.platform !== 'darwin') app.quit();
+  });
+  
+  app.on('will-quit', function () {
+    globalShortcut.unregisterAll();
+  });
 
 const menuTemplate = [
 
