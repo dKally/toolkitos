@@ -24,6 +24,7 @@ const downloadingMessage = document.querySelector('.download-message')
 
 // Local dos instaladores
 const chromePath = path.join(__dirname, '..' ,'..', 'installers', 'ChromeSetup.exe')
+console.log(chromePath)
 const firefoxPath = path.join(__dirname, '..', '..', 'installers', 'FirefoxSetup.exe')
 const operaPath = path.join(__dirname, '..', '..', 'installers', 'OperaGXSetup.exe')
 const amdPath = path.join(__dirname, '..', '..', 'installers', 'OperaGXSetup.exe')
@@ -95,66 +96,63 @@ hasWinrar32 = verify(winrar32PathDownloads)
 hasRealtek = verify(realtekPathDownloads)
   
 if (hasChrome) {
-    toggleBtn('chrome-download', 'chrome-install', chromePathDownloads);
+    toggleBtn('chrome-download', 'chrome-install');
 }
   
 if (hasFirefox) {
-    toggleBtn('firefox-download', 'firefox-install', firefoxPathDownloads);
+    toggleBtn('firefox-download', 'firefox-install');
 }
   
 if (hasOpera) {
-    toggleBtn('opera-download', 'opera-install', operaPathDownloads);
+    toggleBtn('opera-download', 'opera-install');
 }
 
 if (hasAmd) {
-    toggleBtn('amd-download', 'amd-install', amdPathDownloads);
+    toggleBtn('amd-download', 'amd-install');
 }
 
 if (hasCpuz32) {
-    toggleBtn('cpuz32-download', 'cpuz32-install', cpuz32PathDownloads);
+    toggleBtn('cpuz32-download', 'cpuz32-install');
 }
 
 if (hasCpuz64) {
-    toggleBtn('cpuz64-download', 'cpuz64-install', cpuz64PathDownloads);
+    toggleBtn('cpuz64-download', 'cpuz64-install');
 }
 
 if (hasGpuz) {
-    toggleBtn('gpuz-download', 'gpuz-install', gpuzPathDownloads);
+    toggleBtn('gpuz-download', 'gpuz-install');
 }
 
 if (hasNVCcleanstall) {
-    toggleBtn('nvccleanstall-download', 'nvccleanstall-install', nvccleanstallPathDownloads);
+    toggleBtn('nvccleanstall-download', 'nvccleanstall-install');
 }
 
 if (hasDiscord) {
-    toggleBtn('discord-download', 'discord-install', discordPathDownloads);
+    toggleBtn('discord-download', 'discord-install');
 }
 
 if (hasWinrar64) {
-    toggleBtn('winrar64-download', 'winrar64-install', winrar64PathDownloads);
+    toggleBtn('winrar64-download', 'winrar64-install');
 }
 
 if (hasWinrar32) {
-    toggleBtn('winrar32-download', 'winrar32-install', winrar32PathDownloads);
+    toggleBtn('winrar32-download', 'winrar32-install');
 }
 
 if (hasRealtek) {
-    toggleBtn('realtek-download', 'realtek-install', realtekPathDownloads);
+    toggleBtn('realtek-download', 'realtek-install');
 }
 
 
 
 // Trocando os botões "Downloads" para "Instalar"
 
-function toggleBtn(classDownlaod, classInstall, path){
-  console.log(path)
+function toggleBtn(classDownload, classInstall, path){
   try {
-    let btn = document.querySelector('.' + classDownlaod)
-    btn.innerHTML = '<i class="fas fa-download"></i></i> Instalar'
-    btn.classList.remove(classDownlaod)
-    btn.classList.add(classInstall)
+    let btn = document.querySelector('.' + classDownload)
+    btn.classList.add('hide')
     btnInstall = document.querySelector('.' + classInstall)
-    btnInstall.addEventListener('click', ()=>{execFiles(path)})
+    btnInstall.classList.remove('hide')
   } catch (error) {
     console.error('Ocorreu um erro:', error)
   }
@@ -208,10 +206,9 @@ function move(has, downloading, path, pathDownloads, classDownload, classInstall
 }
 
 function execFiles(path){
-    exec(chromePathDownloads, (error, stdout, stderr) => {
+    exec(path, (error, stdout, stderr) => {
         if (error) {
           console.error(`Erro ao executar o comando: ${error}`)
-          console.log(path)
           return
         }
         console.log(`Saída padrão: ${stdout}`)

@@ -152,7 +152,7 @@ progress {
 }
 
 .hide{
-    display: none;
+    visibility: hidden;
 }
 
 .open-downloads{
