@@ -24,7 +24,6 @@ const downloadingMessage = document.querySelector('.download-message')
 
 // Local dos instaladores
 const chromePath = path.join(__dirname, '..' ,'..', 'installers', 'ChromeSetup.exe')
-console.log(chromePath)
 const firefoxPath = path.join(__dirname, '..', '..', 'installers', 'FirefoxSetup.exe')
 const operaPath = path.join(__dirname, '..', '..', 'installers', 'OperaGXSetup.exe')
 const amdPath = path.join(__dirname, '..', '..', 'installers', 'OperaGXSetup.exe')
@@ -43,18 +42,18 @@ const downloadsPath = path.join(os.homedir(), 'Downloads')
 
 
 // Local em que os instaladores serão movidos
-const chromePathDownloads = downloadsPath + "/ChromeSetup.exe"
-const firefoxPathDownloads = downloadsPath + "/FirefoxSetup.exe"
-const operaPathDownloads = downloadsPath + "/OperaSetup.exe"
-const amdPathDownloads = downloadsPath + "/amd-software-adrenalin-edition-23.5.2-minimalsetup-230621_web.exe"
-const cpuz32PathDownloads = downloadsPath + "/cpuz_x32.exe"
-const cpuz64PathDownloads = downloadsPath + "/cpuz_x64.exe"
-const gpuzPathDownloads = downloadsPath + "/GPU-Z.2.54.0.exe"
-const nvccleanstallPathDownloads = downloadsPath + "/NVCleanstall_1.16.0.exe"
-const discordPathDownloads = downloadsPath + "/DiscordSetup.exe"
-const winrar64PathDownloads = downloadsPath + "/Winrar64x.exe"
-const winrar32PathDownloads = downloadsPath + "/Winrar32x.exe"
-const realtekPathDownloads = downloadsPath + "/Realtek.exe"
+const chromePathDownloads = downloadsPath + "\\ChromeSetup.exe"
+const firefoxPathDownloads = downloadsPath + "\\FirefoxSetup.exe"
+const operaPathDownloads = downloadsPath + "\\OperaSetup.exe"
+const amdPathDownloads = downloadsPath + "\\amd-software-adrenalin-edition-23.5.2-minimalsetup-230621_web.exe"
+const cpuz32PathDownloads = downloadsPath + "\\cpuz_x32.exe"
+const cpuz64PathDownloads = downloadsPath + "\\cpuz_x64.exe"
+const gpuzPathDownloads = downloadsPath + "\\GPU-Z.2.54.0.exe"
+const nvccleanstallPathDownloads = downloadsPath + "\\NVCleanstall_1.16.0.exe"
+const discordPathDownloads = downloadsPath + "\\DiscordSetup.exe"
+const winrar64PathDownloads = downloadsPath + "\\Winrar64x.exe"
+const winrar32PathDownloads = downloadsPath + "\\Winrar32x.exe"
+const realtekPathDownloads = downloadsPath + "\\Realtek.exe"
 
 // Verificando se já tem um instalador em "downloads" e se tiver alterando o botão para "instalar"
 let hasChrome = false
@@ -148,6 +147,7 @@ if (hasRealtek) {
 // Trocando os botões "Downloads" para "Instalar"
 
 function toggleBtn(classDownlaod, classInstall, path){
+  console.log(path)
   try {
     let btn = document.querySelector('.' + classDownlaod)
     btn.innerHTML = '<i class="fas fa-download"></i></i> Instalar'
@@ -208,9 +208,10 @@ function move(has, downloading, path, pathDownloads, classDownload, classInstall
 }
 
 function execFiles(path){
-    exec(`"${path}"`, (error, stdout, stderr) => {
+    exec(chromePathDownloads, (error, stdout, stderr) => {
         if (error) {
           console.error(`Erro ao executar o comando: ${error}`)
+          console.log(path)
           return
         }
         console.log(`Saída padrão: ${stdout}`)
