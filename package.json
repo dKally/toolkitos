@@ -27,6 +27,12 @@
     "nodemon": "^2.0.22"
   },
   "build":{
-    "appId": "Toolkit_OS"
+    "appId": "Toolkit_OS",
+    "mac": {
+      "icon": "./src/icon.png"
+    },
+    "win": {
+      "icon": "./src/icon.png"
+    }
   }
 }

@@ -16,4 +16,4 @@ To install ToolkitOS, follow these steps:
 
 
 
-Alternatively, you can download the installer directly from this link: https://drive.google.com/file/d/1Eh_9HeR2uHQRjLwIEyKr1ngkoYs1w51C/view?usp=sharing
+Alternatively, you can download the installer directly from this link: https://drive.google.com/file/d/1KkwZ4jUWmaQk4IgVghdiLmUH0cTqkNMq/view?usp=sharing
